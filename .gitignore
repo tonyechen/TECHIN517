@@ -14,7 +14,10 @@
 /huggingface/*
 !/huggingface/README.md
 CLAUDE.md
+.claude
 HUMBLE*
 JAZZY*
 OLD*
 working*
+BACK*
+logs

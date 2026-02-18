@@ -2,16 +2,38 @@
 
 ## Learning Objectives
 
+- Gain experience using cutting edge techniques for robot learning
+- Develop a smart, general robot application for an area of robotics your team is passionate about: healthcare, agriculture, home, food, manufacturing, etc.
+
+
+## Project Requirements
+
+- Develop a "general robotics" application for bi-manual SO101 robot arms
+- Incorporate machine learning, computer vision, and classical techniques to accomplish your application
+- Collect quantitative metrics on your system's performance
+
+
 ## TODO
+
+- Join a team
+- Choose a concept or category of tasks to iterate on
+- Review existing demos and research online
+- Discuss application with teaching team
+- Begin with the most basic version of your application
+    - For example: If your application is to fold clothes, start by folding a hand towel once
+- Continue developing features, gathering training data, and training models to increase the robustness of your system
+- Present your progress to the class
+- Incorporate feedback
+- Present your final results
 
 **Schedule**
 
 |  Week | TODO | Deliverable |
 | - | - | - |
 | 1 | Choose a team<br>Choose an application | Add team to class spreadsheet |
-| 2 | Have concept approved by teaching team | Present research |
-| 3 | Gather training data for your application<br>Train VLA<br>Evaluate performance | **In-class presentation 1** |
-| 4 |
+| 2 | Research chosen application<br>Have concept approved by teaching team | **Teaching team check-in** |
+| 3 | Gather training data<br>Train VLA<br>Evaluate performance | **In-class presentation 1** |
+| 4 | Continue developing your application<br>Address feedback from presentations
 | 5 |
 | 6 |
 | 7 | | **In-class presentation 2** |
@@ -20,8 +42,52 @@
 | 10 |
 | 11 | | **Final presentation** |
 
+**Presentations**
 
-## Project Requirements
+- Teaching team check-in:
+    - Discuss your application
+    - Present your research
+    - Present an initial development plan:
+        - How are you going to start?
+        - How far would you like to get before the end of the quarter?
+        - How do you plan to address the evaluation considerations?
+- In-class presentation 1:
+    - Present your plan
+    - Train the most basic version of your application  
+    - Show a demo video of progress so far
+    - Present evidence of what each team member has done so far
+    - Explain what each team member will do next
+- In-class presentation 2:
+    - Demonstrate progress based on feedback from the first presentation
+    - Show a demo video of progress so far
+    - Present evidence of what each team member has done so far
+    - Explain what each team member will do next
+- Final presentation:
+    - Perform a live demo
+    - Present your results
+    - Explain how you handled challenges and improved your system
+    - Address the evaluation considerations below
+
+
+## Evaluation
+
+Your project will be evaluated based on the following priorities:
+1. Does your system meet the project requirements?
+2. Can your system preform your application?
+3. Can it perform the application safely?
+    - Does it avoid harming people?
+    - Does it avoid damaging the robot?
+    - Does it avoid damaging the environment and any objects it interacts with?
+4. Is it robust?
+    - Can it perform the application multiple times?
+    - What is the success rate?
+    - How long can your system operate before it needs to be reset or maintained?
+5. How well does it generalize?
+    - Does your application work with related objects?
+    - Does it work in different lighting conditions?
+    - What happens if there are random objects in the scene?
+    - Does your application work in related environments?
+
 
 ## Final Deliverables
 
@@ -38,18 +104,24 @@
         - A link to your video demo
         - Setup instructions, including installation instructions of any dependencies, and a link to download your pre-trained model(s)
         - Usage instructions
-- A short presentation in front of the class containing:
-    - Contributions from all team members
-    - A brief explanation of your application
-    - Overview of your process and how you overcame road-blocks
-    - Evaluation results
-    - Video demo of final results
 - Return all materials
 
 
-## Extra Credit
-
 ## FAQ
+
+**Q:** What methods should we focus on? (VLA, classical motion planning, RL)?  
+**A:** Start by training a demo using the tutorial from lerobot.  
+Afterwards you may use any methods necessary.  
+The lab schedule will not train you on RL until near the end of the quarter, but you are always welcome to work ahead.
+
+**Q:** We couldn't get enough time with the arms to complete our project, can we still get the full grade?  
+**A:** You need to manage your time to complete on-time.  
+Please be considerate to your fellow class-mates and use the class spreadsheet to schedule time with the 5090 desktops.  
+Consider training your models on your personal devices overnight to reduce reliance on school resources.  
+
+**Q:** Do we have to use 2 arms?  
+**A:** Your project must meet all project requirements.
+
 
 ## Resources
 
