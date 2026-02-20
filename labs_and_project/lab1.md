@@ -1,7 +1,7 @@
-# Lab 1: LeRobot Ex Machina
+# Lab 1: Lerobot Ex Machina
 
 In this quarter, we will survey AI in robotics with robot arms.  
-We will use the [SO101 arm](https://github.com/TheRobotStudio/SO-ARM100) to explore imitation learning, computer vision, and reinforcement learning.  
+We will use the [SO101 arm](https://github.com/TheRobotStudio/SO-ARM100) to explore imitation learning, classical motion planning, computer vision, and reinforcement learning.  
 The first step is to assemble the arms and configure the working environment.  
 Many of the labs for this course assume you have a GPU that works with Nvidia technologies.  
 If you do not, please use the desktops in the robotics lab area.  
@@ -11,6 +11,7 @@ If you do not, please use the desktops in the robotics lab area.
 
 - Assemble and calibrate a robot arm.
 - Configure a Docker container to develop the arm with ROS, lerobot, and GPUs.
+- Train your first vision-language-action policy.
 
 
 ## TODO
@@ -18,7 +19,7 @@ If you do not, please use the desktops in the robotics lab area.
 **As a project team**
 
 1. Collect a robot arm kit from the instructors.  
-Fill out the included packing slip to confirm you recieved all necessary parts.  
+Fill out the included packing slip to confirm you received all necessary parts.  
 
 2. Follow the [instructions](https://huggingface.co/docs/lerobot/en/so101) to assemble your arm while you discuss your project.  
 
@@ -60,7 +61,7 @@ Run the following command to make sure your GPU drivers are installed:
     ```bash
     --dataset.push_to_hub=False
     ```
-    **You can train lerobot policies using your mac by following the normal lerobot conda installation guide**  
+    **You can train lerobot policies using your mac by following the [standard lerobot conda installation guide](https://huggingface.co/docs/lerobot/en/installation)**  
     By training with your personal device, you can let other students use the school computers.  
     Highly recommend training with the following argument to avoid additional setup:
     ```bash
@@ -129,3 +130,5 @@ As you modify the given Dockerfile, checkout this list to see what the keywords 
 Environment management is extremely important for robotics development!  
 We would run into infinitely more issues if all students installed these workspaces onto their own host machines.  
 This lab requires you to modify a Dockerfile because understanding Docker genuinely makes development so much easier.  
+
+[Best practices for recording imitation learning demonstrations from NVIDIA](https://www.youtube.com/watch?v=f7Wo9AFUR9U)

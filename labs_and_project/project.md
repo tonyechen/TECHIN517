@@ -57,11 +57,13 @@
     - Show a demo video of progress so far
     - Present evidence of what each team member has done so far
     - Explain what each team member will do next
+    - Describe your goals for the next 2 presentation
 - In-class presentation 2:
     - Demonstrate progress based on feedback from the first presentation
     - Show a demo video of progress so far
     - Present evidence of what each team member has done so far
     - Explain what each team member will do next
+    - Describe your goal for the final presentation
 - Final presentation:
     - Perform a live demo
     - Present your results

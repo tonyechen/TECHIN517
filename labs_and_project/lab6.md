@@ -72,4 +72,4 @@ In this lab, we'll begin using Isaac Lab inside of Nvidia's Isaac Sim to explore
 
 [Wheeled Lab by researchers at UW!](https://www.youtube.com/watch?v=Y4b-cz2xB1w)
 
-[Comparison of different RL systems by FS Studio on LinkedIn](https://www.linkedin.com/pulse/comparative-analysis-robotic-simulation-environments-fs-studio-cpjic)
+[Comparison of different RL simulation environments by FS Studio on LinkedIn](https://www.linkedin.com/pulse/comparative-analysis-robotic-simulation-environments-fs-studio-cpjic)
