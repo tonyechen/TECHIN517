@@ -4,6 +4,7 @@
 
 - Gain experience using cutting edge techniques for robot learning
 - Develop a smart, general robot application for an area of robotics your team is passionate about: healthcare, agriculture, home, food, manufacturing, etc.
+- Design and run quantitative experiments to evaluate a general robotic system
 
 
 ## Project Requirements
@@ -15,7 +16,7 @@
 
 ## TODO
 
-- Join a team
+- Join a team: you are not allowed to team up with anyone you worked with last quarter
 - Choose a concept or category of tasks to iterate on
 - Review existing demos and research online
 - Discuss application with teaching team
@@ -38,13 +39,11 @@
 | 6 |
 | 7 | | **In-class presentation 2** |
 | 8 |
-| 9 |
-| 10 | The project should be done by now<br>Leave time to measure results, document, and practice your presentation | 
+| 9 | The project should be done by now<br>Leave time to measure results, document, and practice your presentation | 
+| 10 |
 | 11 | | **Final presentation** |
 
-**Quantitative Results**
 
-`# TODO: ask Zubin`
 
 **Presentations**
 
@@ -70,7 +69,7 @@
     - Demonstrate progress based on feedback from the first presentation
     - Show a demo video of progress so far
     - Present evidence of what each team member has done so far
-    - Explain what each team member will do next
+    - Explain what you plan to measure to evaluate quantitative success
     - Describe your goal for the final presentation
     - Stick to time limit
 - Final presentation:
@@ -83,9 +82,10 @@
     - Stick to time limit
 
 
-## Evaluation
+### Evaluation
 
 Your project will be evaluated based on the following priorities:
+
 1. Does your system meet the project requirements?
 2. Can your system preform your application?
 3. Can it perform the application safely?
@@ -102,6 +102,49 @@ Your project will be evaluated based on the following priorities:
     - What happens if there are random objects in the scene?
     - Does your application work in related environments?
 
+**Quantitative Results**
+
+During the second in-class presentation, you will be asked to justify how you quantitaively evaluate your project.  
+The teaching team will give you feedback and suggestions about your plan during the presentation.  
+Every team will need to design a series of experiments to quantitatively evaluate your project.  
+Experiments should measure:
+
+- Accuracy: What percentage of the time does the robot succeed in the task
+- Timing: How long does the robot take to accomplish the task
+- The variance of one meaningful parameter for your project, e.g.
+    - The type(s) of objects you interact with
+    - Lighting conditions
+    - How messy the workspace is
+    - Human interference
+    - Etc.
+
+Your experiment plan for the second presentation should include:  
+
+- A clear definition of success: a clear, binary definition, e.g. "the towel is folded with edges aligned within 3cm"
+- Termination criteria: a what point is failure decided, e.g. safety stop, object dropped, timeout
+- Starting state: how does the robot begin each trial
+- Reset proceedure: steps to return the environment to the starting state
+
+You must test a minimum of 3 states of your project.  
+You must run at least 10 trials per state tested.  
+This requires at least 30 trial runs of your project.  
+For each trial, you should record:
+
+- Trial number 
+- State label (which of the 3 states are you testing)
+- Success / failure
+- Task completion time
+- Failure mode if applicable (e.g. "timeout", "object dropped", etc.)
+- Any notable observations
+
+Your quantitative results report in your Github repo should include:
+
+- Mean and standard deviations of timings across successful trials
+- Success rate
+- Failure mode analysis: categorize failures into types
+- The raw data in a csv file
+- At least one bar chart or table showing success rate across conditions
+
 
 ## Final Deliverables
 
@@ -117,7 +160,7 @@ Your project will be evaluated based on the following priorities:
     - A README.md file with:
         - A short explanation of your project
         - A link to your video demo
-        - Visualizations about your quantitative results
+        - Report and visualizations about your quantitative results
         - Setup instructions, including installation instructions of any dependencies, and a link to download your pre-trained model(s)
         - Usage instructions
 - Return all materials

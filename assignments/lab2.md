@@ -31,17 +31,19 @@ This allows us to seamlessly switch between multiple policies and classical cont
 1. Complete the rosetta contract for the SO101 robot arm in `soa_ros2/soa_bringup/rosetta_contracts`
 
 2. Run your lerobot policy from lab 1 on a physical arm using ROS and the rosetta package.
+    Read through the [deploying policies section](https://github.com/iblnkn/rosetta?tab=readme-ov-file#deploying-policies) of the rosetta documentation to understand how to use the policy server.  
     In one terminal, bring-up your robot.  
-    In another terminal, start your action_node_relay.  
-    In a third terminal, start the rosetta policy server.  
-    Read through the [deploying policies section](/home/ubuntu/soa_dev/soa_ws/src/soa_ros2/soa_moveit_config) of the rosetta documentation to understand how to use the policy server.  
-    In a fourth terminal, send a goal to the policy server to complete the action you trained on.
+    In a second terminal, start the rosetta policy server.  
+    In a thrid terminal, send a goal to the policy server to complete the action you trained on.  
+    Note: the documentation says to use `/rosetta_client/run_policy`, but it actually works with `/run_policy`.
 
 3. Develop a ROS service for hot-swapping controllers.  
     We need to switch controllers because lerobot policies works best with forward command controllers while classic motion planning works best with joint trajectory controllers.  
-    Both of these controllers are started in the `soa_bringup` launch files; one starts as active, the other as inactive.  
+    Both of these controllers are started in the `soa_bringup` launch files; one starts as active, the other as inactive.
+
     Try switching between the controllers in the command line first.  
-    Refer to the [ros2_control cli documentation](https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Services/Understanding-ROS2-Services.html) to learn how.  
+    Refer to the [ros2_control cli documentation](https://control.ros.org/humble/doc/ros2_control/ros2controlcli/doc/userdoc.html) to learn how.
+
     In the package `soa_functions`, complete all the TODOs in the file `controller_switcher.py`.  
     We will use the `soa_functions` package to build capabilities throughout the quarter.  
     Refer to the [ROS service tutorial](https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Services/Understanding-ROS2-Services.html) for more information.  
@@ -55,12 +57,7 @@ This allows us to seamlessly switch between multiple policies and classical cont
 2. Link a video of your lerobot policy running through ros2.  
     Show your ros2 terminal and the robot running autonomously.
 
-3. Link a video demonstrating the use of your controller switcher service in the terminal.  
-    Show the active controller using the ros2_control cli.  
-    Switch from one controller to the other using the terminal.  
-    Show the active controller again.  
-    Switch controllers back.  
-    Show the active controller again.  
+3. Submit the command(s) used to switch controllers from the command line
 
 4. Write a short paragraph discussing why you may want to use different controllers.  
     **Do not use AI.**  
@@ -69,6 +66,15 @@ This allows us to seamlessly switch between multiple policies and classical cont
 
 
 ## FAQ
+
+**Q:** Why are we using "namespaces" with all the arm topics?  
+**A:** Namespaces are useful for distinguishing similar nodes.  
+    This is helpful for separating multiple robots like leader/followers, left/right arms, etc.  
+    You can read a bit more about them [here](https://docs.ros.org/en/humble/Tutorials/Intermediate/Launch/Using-ROS2-Launch-For-Large-Projects.html#namespaces). 
+
+**Q:** Nothing appears when I run `ros2 control list_controllers`, why?  
+**A:** Make sure to use the controller_manager in the namespace of your arm,  
+    e.g. `ros2 control list_controllers --controller-manager /follower/controller_manager`
 
 
 ## Resources

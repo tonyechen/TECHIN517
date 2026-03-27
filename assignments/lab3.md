@@ -1,4 +1,4 @@
-# Lab 3: I like to MoveIt MoveIt
+# Lab 3: MoveIt Forward Kinematics
 
 Over the next series of labs, we will learn about classic arm control, or "motion planning".  
 Industrial arms are one of the oldest types of robots, dating back to the 1960s.  
@@ -21,15 +21,15 @@ This lab focuses on "forward kinematics", where we control each robot arm joint 
     This allows for using many types of planners with nearly any type of robot manipulator.  
     MoveIt includes many of the tools you need including obstacle avoidance, orientation constraints, camera integration, and more.  
 
-- [soa_moveit_config]()  
-    Most robot arms you will use provide functions for motion planning.  
-    It's rare that you will need to configure this yourself from scratch.  
-    Also, MoveIt's setup documentation is lacking; refer to examples online if you ever need to setup yourself.  
-
 - [pymoveit2](https://github.com/AndrejOrsula/pymoveit2)  
     MoveIt is typically programmed with C++.  
     It has a python interface, but it requires building the package from source, which can take hours and an unreasonable amount of RAM.  
     We'll use this open-source package to quickly build with python.
+
+- [soa_moveit_config]()  
+    Most robot arms you will use provide functions for motion planning.  
+    It's rare that you will need to configure this yourself from scratch.  
+    Also, MoveIt's setup documentation is lacking; refer to examples online if you ever need to setup yourself.  
 
 
 ## TODO
@@ -63,21 +63,28 @@ This lab focuses on "forward kinematics", where we control each robot arm joint 
 
 1. Submit your code for the `save_joint_states` service.
 
-2. Copy the contents of your joint states csv file into your report.
+2. Submit a link to the official ros2 humble documentation definition of the joint states message type.
 
-2. Submit your code for the `move_to_joint_states_server`.
+3. Copy the contents of your joint states csv file into your report.
 
-3. Submit your code for the `go_to_joint_states` app.
+4. Submit your code for the `move_to_joint_states_server`.
 
-4. Submit a link to the video of the arm moving to your joint positions.
+5. Submit your code for the `go_to_joint_states` app.
 
-5. Write a short paragraph discussing which applications are well suited for forward kinematics.  
+6. Submit a link to the video of the arm moving to your joint positions.
+
+7. Write a short paragraph discussing which applications are well suited for forward kinematics.  
     **Do not use AI.**  
     What are the strengths of controlling the joints directly?  
     What are the weaknesses?
 
 
 ## FAQ
+
+**Q:** Why do the arm and gripper move differently in the `go_to_joint_states` app?  
+    Is it posisble to make them move together?  
+**A:** Both servers use pymoveit2's execute() method, which sends planned trajectories to MoveGroup's execute_trajectory action.  
+This action capability in the move_group node serializes all trajectory executions.
 
 
 ## Resources

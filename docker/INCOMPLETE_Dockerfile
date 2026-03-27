@@ -1,40 +1,22 @@
 ARG CUDA_VERSION=12.4.1
 ARG OS_VERSION=22.04
 
+### build image ###
 FROM nvidia/cuda:${CUDA_VERSION}-base-ubuntu${OS_VERSION} AS build
 
-### lerobot dependencies ###
-# TODO:
-# refer to this lerobot Dockerfile to see how they install dependencies
-# https://github.com/huggingface/lerobot/blob/b74e2a61133b695eca35997334f22389321ed6db/docker/Dockerfile.internal
-# we don't need to use `uv` because we want lerobot and ros to share a python environment
-# you will need everything between "ARG PYTHON_VERSION=3.10"
-# to python${PYTHON_VERSION}-dev
+RUN echo 'Acquire::Retries "3";' > /etc/apt/apt.conf.d/80retries
 
-### ros ###
-# TODO:
-# install ros2 humble
-# checkout the official Dockerfiles to see how
-# https://github.com/osrf/docker_images/tree/master/ros/humble/ubuntu/jammy
+# TODO: install lerobot
+# checkout lerobot's Dockerfile(s)
 
-# extra tools for installing more tools later
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    python3-pip \
-    python-is-python3
+# TODO: install ros humble desktop
+# search online for examples of using ros humble desktop in ubuntu/cuda Dockerfiles
 
-### realsense ###
-# TODO
-# use pip to install realsense dependencies to use the depth cameras for this class
+# TODO: install python3-pip
+# also suggest to install python-is-python3
+
+# TODO: use pip to install realsense dependencies to use the depth cameras
 # https://dev.realsenseai.com/docs/python2
-
-### ros dependency packages ###
-# TODO install the following
-# moveit to control the arm(s)
-# https://moveit.ai/install-moveit2/binary/
-# realsense to use the depth camera with ros
-# https://github.com/realsenseai/realsense-ros
-# ros-humble-usb-cam
-# ros-humble-topic-tools
 
 
 ### dev ###
@@ -46,27 +28,27 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 # This stage reuses everything from the `build` stage and adds dev tools
 FROM build AS dev 
 
-### change user ###
-# TODO
-# set the username as "ubuntu"
-# you can reference the Dockerfile from TECHIN 516, or ros2 humble Dockerfiles from ijnek
-# https://github.com/GIXLabs/TECHIN516/blob/main/turtlebot4_ws/.devcontainer/Dockerfile
+# TODO: change user to "ubuntu" with normal user permissions
+# reference the TECHIN 516 Dockerfile, or ros2 humble Dockerfiles from ijnek
 
+# general dev tools
 RUN sudo apt-get update && sudo apt-get install -y --no-install-recommends \
     vim \
     nano \
     less \
     tmux
 
+# environment settings in the bashrc
 RUN echo "export PATH=\"$HOME/.local/bin:$PATH\"" >> /home/ubuntu/.bashrc && \
     echo "source /opt/ros/humble/setup.bash" >> /home/ubuntu/.bashrc  && \
-    echo "source /home/ubuntu/techin517/so101_ws/install/setup.bash" >> /home/ubuntu/.bashrc && \
+    echo "source /home/ubuntu/techin517/soa_ws/install/setup.bash" >> /home/ubuntu/.bashrc && \
     echo "export ROS_LOCALHOST_ONLY=1" >> /home/ubuntu/.bashrc && \
     echo "export LEROBOT_SRC=\"/home/ubuntu/techin517/third_party/lerobot/src/lerobot\"" >> /home/ubuntu/.bashrc && \
-    echo "export SO101BRIDGE_INSTALL_SITE_PACKAGES=\"/home/ubuntu/techin517/so101_ws/install/so101_ros2_bridge/lib/python3.10/site-packages/lerobot\"" >> /home/ubuntu/.bashrc
+    echo "export SO101BRIDGE_INSTALL_SITE_PACKAGES=\"/home/ubuntu/techin517/so101_ws/install/so101_ros2_bridge/lib/python3.10/site-packages/lerobot\"" >> /home/ubuntu/.bashrc && \
+    echo "export HF_USER=ubuntu" >> /home/ubuntu/.bashrc && \
+    echo "export XDG_RUNTIME_DIR=/tmp/runtime-ubuntu" >> /home/ubuntu/.bashrc
 
 # Default shell
 CMD ["/bin/bash"]
 
-# TODO
-# rename this file to "Dockerfile"
+# TODO: rename this file to "Dockerfile"

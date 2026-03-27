@@ -85,8 +85,8 @@ Run the following command to make sure your GPU drivers are installed:
     Follow [the guide to teleoperate using a camera](https://huggingface.co/docs/lerobot/cameras#setup-cameras).  
     Use both the wrist-mounted camera and the overhead depth camera.  
 
-6. Train an ACT policy using 50 examples and run inference:  
-    We highly recommend recording a couple episodes before going for all 50 to ensure everything is working properly.  
+6. Train an ACT policy using 30 examples and run inference:  
+    We highly recommend recording a couple episodes before going for all 30 to ensure everything is working properly.  
     We highly recommend recording with the following argument to avoid additional setup:
     ```bash
     --dataset.push_to_hub=False
@@ -100,7 +100,7 @@ Run the following command to make sure your GPU drivers are installed:
     **Plan for training to take a few hours**  
     We will be training many policies this quarter.  
     By using your personal device(s) instead of school computers, you can train overnight and sleep easy knowing that no one will interfere with the process.  
-    Record a video of running your policy trained with 50 examples.  
+    Record a video of running your policy trained with 30 examples.  
     Lerobot has [many tools](https://huggingface.co/docs/lerobot/en/using_dataset_tools) for editing datasets if you need to remove an episode, or if you want to record in batches and merge them later.  
 
 7. Save your training dataset and trained policy for later:  
@@ -117,7 +117,7 @@ Run the following command to make sure your GPU drivers are installed:
 Any time you need to use a new arm, you should be able to download the calibration.  
 If you need to update the calibration at any point, make sure to update the file in the drive as well. 
 
-4. Submit your video of running inference after training with 50 examples.
+4. Submit your video of running inference after training with 30 examples.
 
 5. Write a short paragraph discussing the trade-offs of using VLAs.  
     **Do not use AI**  

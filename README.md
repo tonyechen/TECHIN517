@@ -18,7 +18,7 @@ Title the notebook like: `lab1_your_name.ipynb`.
 An [example lab report is available in this repo](/lab_report_example.ipynb).  
 If you submit links in your lab report that the grader cannot access on-time, the submission will be considered late.
 
-**Any lab question, and any part of provided code, may be used as a question in the weekly quizzes.**
+**Any lab question, any linked documentation, and any part of provided code, may be used as a question in the weekly quizzes.**
 
 
 ## Acknowledgements
