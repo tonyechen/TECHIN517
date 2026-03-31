@@ -44,7 +44,7 @@ The SO101 arm is only 5-dof, significantly limiting the reachable poses.
 
 2. Complete the `move_to_pose_server` in `soa_functions`.
 
-3. Complete `load_planning_scene` in `soa_functions`.
+3. Complete `planning_scene` in `soa_functions`.
 
 4. Try to move the robot arm through the table in Rviz when using your planning scene.  
     Launch MoveIt, start your planning scene in a second terminal.  

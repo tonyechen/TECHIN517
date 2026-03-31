@@ -56,5 +56,5 @@ pip install torch==2.7.1 torchvision==0.22.1 torchaudio==2.7.1 --index-url https
 
 # build ros
 cd /home/ubuntu/techin517/soa_ws/src/
-bash /home/ubuntu/techin517/soa_ws/src/soa_ros2/build.sh
+bash /home/ubuntu/techin517/ros2_ws/src/soa_ros2/build.sh
 source /home/ubuntu/.bashrc
