@@ -41,10 +41,8 @@ RUN sudo apt-get update && sudo apt-get install -y --no-install-recommends \
 # environment settings in the bashrc
 RUN echo "export PATH=\"$HOME/.local/bin:$PATH\"" >> /home/ubuntu/.bashrc && \
     echo "source /opt/ros/humble/setup.bash" >> /home/ubuntu/.bashrc  && \
-    echo "source /home/ubuntu/techin517/soa_ws/install/setup.bash" >> /home/ubuntu/.bashrc && \
+    echo "source /home/ubuntu/techin517/ros2_ws/install/setup.bash" >> /home/ubuntu/.bashrc && \
     echo "export ROS_LOCALHOST_ONLY=1" >> /home/ubuntu/.bashrc && \
-    echo "export LEROBOT_SRC=\"/home/ubuntu/techin517/third_party/lerobot/src/lerobot\"" >> /home/ubuntu/.bashrc && \
-    echo "export SO101BRIDGE_INSTALL_SITE_PACKAGES=\"/home/ubuntu/techin517/so101_ws/install/so101_ros2_bridge/lib/python3.10/site-packages/lerobot\"" >> /home/ubuntu/.bashrc && \
     echo "export HF_USER=ubuntu" >> /home/ubuntu/.bashrc && \
     echo "export XDG_RUNTIME_DIR=/tmp/runtime-ubuntu" >> /home/ubuntu/.bashrc
 
