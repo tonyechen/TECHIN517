@@ -89,7 +89,8 @@ Run the following command to make sure your GPU drivers are installed:
     We highly recommend recording a couple episodes before going for all 30 to ensure everything is working properly.  
     We highly recommend recording with the following argument to avoid additional setup:
     ```bash
-    --dataset.push_to_hub=False
+    --dataset.push_to_hub=False \
+    --display_data=False
     ```
     **You can train lerobot policies using your mac by following the [standard lerobot conda installation guide](https://huggingface.co/docs/lerobot/en/installation)**  
     By training with your personal device, you can let other students use the school computers.  
