@@ -170,3 +170,30 @@ This lab requires you to modify a Dockerfile because understanding Docker genuin
 Full write-up covering classical robots, reinforcement learning, imitation learning, and general robot policies.  
 This paper is a great introduction for quickly learning about this field of research.  
 The citations in this paper would be a good start for your literature review this quarter.  
+
+Run the robot
+```
+lerobot-teleoperate     --robot.type=so101_follower     --robot.port=/dev/ttyACM0     --robot.id=gix-follower4     --teleop.type=so101_leader     --teleop.port=/dev/ttyACM1     --teleop.id=gix-leader4
+```
+
+Move the calibration files
+```
+cp gix-follower4.json /home/ubuntu/.cache/huggingface/lerobot/calibration/robots/so101_follower/
+cp gix-leader4.json /home/ubuntu/.cache/huggingface/lerobot/calibration/teleoperators/so101_leader/
+```
+
+Record dataset
+```
+lerobot-record \
+    --robot.type=so101_follower \
+    --robot.port=/dev/ttyACM0 \
+    --robot.id=gix-follower4 \
+    --robot.cameras="{ front: {type: opencv, index_or_path: 1, width: 640, height: 480, fps: 30}}" \
+    --teleop.type=so101_leader \
+    --teleop.port=/dev/ttyACM1 \
+    --teleop.id=gix-leader4 \
+    --display_data=false \
+    --dataset.repo_id=${HF_USER}/record-test \
+    --dataset.num_episodes=1 \
+    --dataset.single_task="Grab the black cube"
+```
