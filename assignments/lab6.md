@@ -162,3 +162,7 @@ There are many ways to install Isaac Sim, we're going to use Nvidia's Isaac Lab 
 ## Resources
 
 [Official Isaac Sim 5.0.0 documentation on importing URDFs](https://docs.isaacsim.omniverse.nvidia.com/5.0.0/importer_exporter/ext_isaacsim_asset_importer_urdf.html)  
+
+[Leisaac from LightWheelAI](https://github.com/LightwheelAI/leisaac)  
+This repo demonstrates integrating the SO101 robot arm directly from the Lerobot interface.  
+Lightwheel AI is a company focused on building simulation infrastructure for physical AI to help other companies train robots in the same manner(s) we're exploring in this class.
