@@ -2,7 +2,7 @@
 
 By now, you're familiar with how much work it takes to accumulate enough data to train AI for robotics.  
 Simulating robots is one strategy to generate huge amounts data quickly for robots to learn faster.  
-In this lab, we'll begin using Isaac Lab inside of Nvidia's Isaac Sim to explore reinforcement learning (RL).  
+In this lab, we'll begin using Isaac Lab inside of Nvidia's Isaac Sim to explore Reinforcement Learning (RL).  
 
 
 ## Learning Objectives
@@ -23,64 +23,71 @@ In this lab, we'll begin using Isaac Lab inside of Nvidia's Isaac Sim to explore
     Integrations like this is why we're using Isaac Lab instead of developing RL in Gazebo or the real robot.  
     Isaac Lab is purpose-built for running RL studies in parallel across thousands of simulations.  
 
+- [Lychee AI Example SO101 Isaac Lab Environment Config](https://github.com/MuammerBay/isaac_so_arm101/tree/main)  
+    Muammer Bay and his Patreon community were major developers of the SO101 and robot learning in early 2025.  
+    Many of the labs for this class were based on their work.  
+    This lab is specifically based off of the above example.
+
 
 ## TODO
 
-1. Create an Isaac Lab "external" project for the so101 arm.
-    - In the Isaac Lab container and directory:
+1. Clone the class' soa_labs Isaac Lab "external environment" repo:
     ```bash
-    ./isaaclab.sh --new
+    git clone # TODO
     ```
-    - Task type: External
-    - Project path: /techin517/isaac_so101
-    - Project name: so101
-    - Isaac Lab workflow: Manager-based | single-agent
-    - RL library: rsl_rl
-
-2. Copy the python file from this lab folder to the <TODO> directory in your new external project.
-
-3. Fill in the TODOs in the python file.
-
-4. Add the environment to <TODO>.
-
-5. Run reinforcement learning with the following command:
+2. Share the repo with the Isaac Lab container.  
+    If you clone the repo into your TECHIN517 repo then it should already be shared.  
+    If not, add it to the Isaac Lab `docker-compose.yaml` file.
+3. Complete the `TODO` comments in `soa_lab/source/soa_lab/tasks/manager_based/soa_lab/soa_lab_env_cfg.py`.
+4. Install the `soa_lab` python library in the Isaac Lab container using:
     ```bash
-    # TODO
+    cd /workspace/isaaclab
+    ./isaaclab.sh -p -m pip install -e /path/to/your/soa_lab/source/soa_lab
     ```
-
-6. During training, open a new terminal and monitor the training process.  
-    You can attach a new terminal to the existing container by running:  
+5. Train reinforcement learning using the SOA environment config using:
     ```bash
-    # TODO
-    ```  
-    Then use [Tensorboard](TODO) to monitor training by running:   
-    ```bash
-    # TODO
+    cd /path/to/your/soa_lab
+    isaaclab -p scripts/rsl_rl/train.py --task=Template-Soa-Lab-v0 --num_envs 4096 --max_iterations 10000
     ```
-
-7. After training, play the policy using the following command:  
+6. Monitor training with [Tensorboard](https://www.tensorflow.org/tensorboard) using:
     ```bash
-    # TODO
+    cd /workspace/isaaclab
+    ./isaaclab.sh -p -m tensorboard.main --logdir /path/to/your/soa_lab/logs/rsl_rl --bind_all
     ```
+    Capture a screenshot of the `Train/mean_reward/time` graph for the deliverables below.
+7. Try changing one of the rewards between +/- 0.1 to 1.0.  
+    Train the model again for roughly the same amount of time as your successful run.  
+    Capture a second screenshot of the `Train/mean_reward/time` graph for the deliverable below.
 
 
 ## Deliverables
 
-1. Submit your completed Isaac Lab managed environment code.
+1. Submit your completed `soa_lab_env_cfg.py` code.
 
-2. Submit a screenshot of your Tensorboard after training is complete.
+2. Submit both screenshots of your `Train/mean_reward/time` graph.
 
-3. Submit a video of the SO101 in Isaac Lab successfully picking the cube.
+3. Submit a video of the SO101 in Isaac Lab successfully picking the cube to the goal position.
+
+4. Write a paragraph comparing the training process before and after you changed a reward.  
+    **Do not use AI.**  
+    Which reward did you change?  
+    Hypothesize about why it effected the training results.
 
 
 ## Resources
 
 [Isaac Lab Official Documentation](https://isaac-sim.github.io/IsaacLab/main/index.html)
 
-[Isaac Lab Official Examples](https://isaac-sim.github.io/IsaacLab/main/source/overview/environments.html)
+[Isaac Lab Official Examples](https://isaac-sim.github.io/IsaacLab/main/source/overview/environments.html)  
+If you ever need to develop an environment config from scratch, the best place to start is by referencing working examples.
 
-[Isaac Lab Office Hours by Nvidia Omniverse on YouTube](https://www.youtube.com/playlist?list=PL3jK4xNnlCVcnMqm4Lnqa5Bok4_iP5NsK)
+[Isaac Lab External Project Creation Documentation](https://isaac-sim.github.io/IsaacLab/main/source/overview/own-project/template.html)  
+[Lychee AI YouTube Tutorial](https://www.youtube.com/watch?v=i51krqsk8ps)  
+NVIDIA provides these tools to create "external projects" for Isaac Lab to enable collaboration and version control.  
+Before these tools, researchers were saving their work in the Isaac Lab directory.  
+This made it difficult to disentangle their work to upgrade Isaac Lab, and for others to recreate their results.
 
-[Wheeled Lab by researchers at UW!](https://www.youtube.com/watch?v=Y4b-cz2xB1w)
-
-[Comparison of different RL simulation environments by FS Studio on LinkedIn](https://www.linkedin.com/pulse/comparative-analysis-robotic-simulation-environments-fs-studio-cpjic)
+[Comparison of different RL simulation environments by FS Studio on LinkedIn](https://www.linkedin.com/pulse/comparative-analysis-robotic-simulation-environments-fs-studio-cpjic)  
+There are many simulation platforms for robotics, many of which support RL to some extent.  
+Each platform has different trade-offs for support / documentation / community / features / etc.  
+We are using NVIDIA Isaac Sim and Isaac Lab to give you experience in the state-of-the-art.

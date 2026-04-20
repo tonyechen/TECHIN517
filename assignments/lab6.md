@@ -27,10 +27,13 @@ Isaac Sim is another simulation platform that includes features for [simulating 
 ## TODO
 
 1. Install Isaac Sim and Isaac Lab.  
-There are many ways to install Isaac Sim, we're going to use Nvidia's Isaac Lab Docker container.  
-    - Clone Nvidia's Isaac Lab repo **into your home directory on the host computer, not in the container!**:
+    There are many ways to install Isaac Sim, we're going to use Nvidia's Isaac Lab Docker container.  
+    - Clone Nvidia's Isaac Lab version 2.2.1 **into your home directory on the host computer, not in the container!**:
         ```bash
+        cd
         git clone https://github.com/isaac-sim/IsaacLab.git
+        cd IsaacLab
+        git checkout v2.2.1
         ```
     - Open the repo in VS Code
 
@@ -43,26 +46,31 @@ There are many ways to install Isaac Sim, we're going to use Nvidia's Isaac Lab 
                 <address>127.0.0.1</address>
             </interfaceWhiteList>
         ```
-    - In the file `IsaacLab/docker/.env.base`, change the `ISAACSIM_VERSION` to `5.0.0`
     - In the file `IsaacLab/docker/.env.ros2`, append `ROS_LOCALHOST_ONLY=1` to the end
     - Add your class repo as a volume in `IsaacLab/docker/docker-compose.yaml`
         ```yaml
         - existing volumes...
         - type: bind
-            source: .isaac-lab-docker-history
-            target: ${DOCKER_USER_HOME}/.bash_history
+          source: .isaac-lab-docker-history
+          target: ${DOCKER_USER_HOME}/.bash_history
         # TODO: add class repo as a shared volume
         - type: bind
-            source: <relative/path/to/your/class/repo>
-            target: /techin517
+          source: <relative/path/to/your/class/repo>
+          target: /techin517
         ```
     - Add the dev directory as a volume
         ```yaml
         - type: bind
-            source: /dev
-            target: /dev
+          source: /dev
+          target: /dev
         ```
-    - In `IsaacLab/docker/Dockerfile.ros2, make the following change:  
+    - Add the apps directory as a volume
+        ```yaml
+        - type: bind
+          source: ../apps
+          target: ${DOCKER_ISAACLAB_PATH}/apps
+        ```
+    - In `IsaacLab/docker/Dockerfile.ros2`, make the following change:  
         Current:
         ```Dockerfile
         echo "source /opt/ros/humble/setup.bash" >> ${HOME}/.bashrc
