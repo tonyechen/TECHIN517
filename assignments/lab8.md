@@ -24,3 +24,5 @@ Reading through chapter 3 is a good intro into the MDPs used by Isaac Lab.
 
 [A (Long) Peek into Reinforcement Learning by Lilian Weng](https://lilianweng.github.io/posts/2018-02-19-rl-overview/)  
 A good overview of the key concepts and math for reinforcement learning.
+
+[Wheeled Lab by researchers at UW!](https://www.youtube.com/watch?v=Y4b-cz2xB1w)

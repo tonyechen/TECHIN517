@@ -51,6 +51,7 @@ In this lab, we'll begin using Isaac Lab inside of Nvidia's Isaac Sim to explore
     ```
 6. Monitor training with [Tensorboard](https://www.tensorflow.org/tensorboard) using:
     ```bash
+    docker exec -it isaac-lab-ros2 bash
     cd /workspace/isaaclab
     ./isaaclab.sh -p -m tensorboard.main --logdir /path/to/your/soa_lab/logs/rsl_rl --bind_all
     ```

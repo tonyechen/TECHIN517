@@ -157,6 +157,7 @@ Isaac Sim is another simulation platform that includes features for [simulating 
     Include your real-life setup with the follower arm and a view of the simulation screen.  
 
 2. Write a paragraph explaining how you would begin to simulate a brand-new robot?  
+    **Do not use AI.**  
     What information would you need?  
     What would you have to develop before approaching Isaac Sim?
 
